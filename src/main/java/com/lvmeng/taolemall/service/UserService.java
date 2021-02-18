@@ -12,4 +12,13 @@ public class UserService {
     public Users login(String username , String password){
         return  usersMapper.login(username, password);
     }
+
+
+    public int register(String username, String password, String user_address){
+        return usersMapper.register(username, password, user_address);
+    }
+
+    public Users findUserByName(String username){
+        return usersMapper.findUserByName(username);
+    }
 }

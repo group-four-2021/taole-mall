@@ -7,4 +7,13 @@
        select * from taole.users where username = #{username} and password = #{password}
     </select>
 
+    <select id="findUserByName" resultType="com.lvmeng.taolemall.Users">
+       select * from taole.users where username = #{username}
+    </select>
+
+    <insert id="register" parameterType="com.lvmeng.taolemall.Users" useGeneratedKeys="true">
+        insert into taole.users (username, password, user_address) values (#{username}, #{password}, #{user_address})
+    </insert>
+
+
 </mapper>
