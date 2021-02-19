@@ -4,6 +4,7 @@ import com.lvmeng.taolemall.Order;
 import com.lvmeng.taolemall.service.OrderService;
 import com.lvmeng.taolemall.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,7 +21,7 @@ public class OrderController {
     UserService userService;
 
     @RequestMapping(value = "/{user_id}")
-    public ModelAndView viewUserOrder(int user_id){
+    public ModelAndView viewUserOrder(@PathVariable int user_id){
         ModelAndView mav = new ModelAndView(new MappingJackson2JsonView());
         mav.addObject("order",orderService.viewUserOrder(user_id));
         return mav;
