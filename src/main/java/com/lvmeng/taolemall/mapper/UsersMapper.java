@@ -9,4 +9,5 @@ public interface UsersMapper {
     int register(String username, String password, String user_address);
     Users findUserByName(String username);
     Users getInfoById(int user_id);
+
 }

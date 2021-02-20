@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.UUID;
+
 @RestController
 public class UsersController {
     @Autowired
@@ -55,6 +59,32 @@ public class UsersController {
         return mav;
 
     }
+    @RequestMapping(value = "/imageUpload")
+    public ModelAndView imageUpload(Users user) throws IOException {
+        ModelAndView mav = new ModelAndView(new MappingJackson2JsonView());
+        String localPath = "D:\\files\\";//这个需要根据服务器情况改一下
+        String sqlPath = null;
+        String filename = null;
+        if(!user.getFile().isEmpty()){
+            String uuid = UUID.randomUUID().toString().replaceAll("-","");
+            String contentType = user.getFile().getContentType();
+            String suffixName = contentType.substring(contentType.indexOf("/")+1);
+            filename=uuid+"."+suffixName;
+            user.getFile().transferTo(new File(localPath+filename));
+        }
+        sqlPath = "/images/"+filename;
+        user.setImage(sqlPath);
+        mav.addObject("user", user);
+        return mav;
+    }
+
+    @RequestMapping(value = "/imageShow")
+    public ModelAndView imageShow(Users user){
+        ModelAndView mav = new ModelAndView(new MappingJackson2JsonView());
+
+        return mav;
+    }
+
 
 
 }

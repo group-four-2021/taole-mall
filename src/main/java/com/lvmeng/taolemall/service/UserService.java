@@ -25,4 +25,5 @@ public class UserService {
     public Users getInfoById(int user_id){
         return  usersMapper.getInfoById(user_id);
     }
+
 }
