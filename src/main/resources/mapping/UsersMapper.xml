@@ -15,5 +15,8 @@
         insert into taole.users (username, password, user_address) values (#{username}, #{password}, #{user_address})
     </insert>
 
+    <select id="getInfoById" resultType="com.lvmeng.taolemall.Users">
+        select user_address from taole.users where user_id = #{user_id}
+    </select>
 
 </mapper>
