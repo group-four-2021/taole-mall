@@ -24,4 +24,11 @@ public class CommoController {
         return mav;
     }
 
+    @RequestMapping(value = "/getAllCommo")
+    public ModelAndView getAllCommo(){
+        ModelAndView mav = new ModelAndView(new MappingJackson2JsonView());
+        mav.addObject("commo",commoService.getAllCommo());
+        return mav;
+    }
+
 }
