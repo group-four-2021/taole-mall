@@ -22,6 +22,13 @@ public class UsersController {
 
     }
 
+    @RequestMapping(value = "/getInfoById")
+    public ModelAndView getInfoById(int user_id){
+        ModelAndView mav = new ModelAndView(new MappingJackson2JsonView());
+        mav.addObject("info",userService.getInfoById(user_id));
+        return mav;
+    }
+
 
     @RequestMapping(value = "/register")
     public ModelAndView register(String username, String password, String user_address){

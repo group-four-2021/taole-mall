@@ -21,4 +21,8 @@ public class UserService {
     public Users findUserByName(String username){
         return usersMapper.findUserByName(username);
     }
+
+    public Users getInfoById(int user_id){
+        return  usersMapper.getInfoById(user_id);
+    }
 }
