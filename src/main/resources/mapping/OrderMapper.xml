@@ -6,7 +6,25 @@
     <select id="viewUserOrder" resultType="com.lvmeng.taolemall.Order">
         select * from taole.menu where user_id = #{user_id}
     </select>
+    <select id="updateMenu" resultType="com.lvmeng.taolemall.Order">
+        select max(menu_id) as menu_id from taole.menu
+    </select>
+    <insert id="addCommoToMetoTable" parameterType="com.lvmeng.taolemall.Order">
+        insert into taole.metocommo (commo_id,menu_id) values (#{commo_id},#{menu_id})
+    </insert>
+    <select id="sumUp" resultType="com.lvmeng.taolemall.Commo">
+        select commo_cost from commo where commo_id=#{commo_id}
+    </select>
+    <insert id="addNewOrder" parameterType="com.lvmeng.taolemall.Order">
+        insert into taole.menu (menu_id,menu_cost,user_id) values (#{menu_id},#{count},#{user_id})
+    </insert>
+    <update id="updateOrder" parameterType="com.lvmeng.taolemall.Order">
+        update taole.menu set menu_cost=#{count} where menu_id=#{menu_id}
+    </update>
+    <delete id="deleteOrder" parameterType="com.lvmeng.taolemall.Order">
 
+        delete from taole.menu where menu_id=#{menu_id}
+    </delete>
 
 
 

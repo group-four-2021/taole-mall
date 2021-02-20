@@ -9,7 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class TaolemallApplication {
 
 	public static void main(String[] args) {
+		System.setProperty("tomcat.util.http.parser.HttpParser.requestTargetAllow","|{}");
 		SpringApplication.run(TaolemallApplication.class, args);
+
 	}
 
 }
