@@ -13,3 +13,5 @@
 数据库menu表和metocommo表的外键约束更改：删除和更新操作设置级联
 
 数据库metocommo表主键设置自增
+
+数据库user表增加image字段，存储头像存放位置
