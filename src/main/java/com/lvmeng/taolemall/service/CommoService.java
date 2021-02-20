@@ -5,6 +5,8 @@ import com.lvmeng.taolemall.mapper.CommoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * 商品查看逻辑类
  * author : 成佳骏
@@ -18,5 +20,8 @@ public class CommoService {
      */
     public Commo showCommo(int commo_id) {
         return commoMapper.showCommo(commo_id);
+    }
+    public List<Commo> getAllCommo(){
+        return commoMapper.getAllCommo();
     }
 }
