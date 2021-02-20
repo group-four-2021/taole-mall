@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Repository
 public interface OrderMapper {
-    Order viewUserOrder(int user_id);
+    ArrayList<Order> viewUserOrder(int user_id);
     int addNewOrder(int user_id,int menu_id,int count);
     int addCommoToMetoTable(int commo_id,int menu_id);
     Commo sumUp(int commo_id);

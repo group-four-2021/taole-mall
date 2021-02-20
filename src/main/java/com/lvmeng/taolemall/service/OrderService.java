@@ -14,7 +14,7 @@ import java.util.Optional;
 public class OrderService {
     @Autowired
     OrderMapper orderMapper;
-    public Order viewUserOrder(int user_id){
+    public ArrayList<Order> viewUserOrder(int user_id){
         return orderMapper.viewUserOrder(user_id);
     }
     public int addNewOrder(int user_id,int menu_id,int count){

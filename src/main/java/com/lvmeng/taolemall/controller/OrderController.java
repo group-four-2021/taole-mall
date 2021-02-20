@@ -27,8 +27,8 @@ public class OrderController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(value = "/{user_id}")
-    public ModelAndView viewUserOrder(@PathVariable int user_id){
+    @RequestMapping(value = "/getUserId",method = RequestMethod.POST)
+    public ModelAndView viewUserOrder(int user_id){
         ModelAndView mav = new ModelAndView(new MappingJackson2JsonView());
         mav.addObject("order",orderService.viewUserOrder(user_id));
         return mav;
